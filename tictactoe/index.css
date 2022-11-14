@@ -1,0 +1,466 @@
+/* welcome to css hell */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+}
+
+::selection {
+  color: #fff;
+  background:#bbadff;
+}
+
+body{
+  background:#bbadff;
+}
+
+.start-box, .select-box, .player1Name, .player2Name, .play-board, .result-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+
+.start-box {
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.start-box.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.start-box header {
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+}
+
+.start-box .playerCountText {
+  font-size: 22px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.start-box .optionsNum {
+  display: flex;
+  width: 100%;
+}
+
+.optionsNum button {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0;
+  border: none;
+  background: #bbadff;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.optionsNum button:hover {
+  transform: scale(1.05);
+  background: #9782ff;
+}
+
+.optionsNum button.player1 {
+  margin-right: 10px;
+}
+
+.optionsNum button.player2 {
+  margin-left: 10px;
+}
+
+.select-box {
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.select-box.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.select-box.show.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.select-box header {
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+}
+
+.select-box .title {
+  font-size: 22px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.select-box .options {
+  display: flex;
+  width: 100%;
+}
+
+.options button {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0;
+  border: none;
+  background: #bbadff;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.options button:hover, .name1Options button:hover, .name2Options button:hover, .btn button:hover {
+  transform: scale(1.05);
+  background: #9782ff;
+}
+
+.options button.playerX{
+  margin-right: 10px;
+}
+
+.options button.playerO{
+  margin-left: 10px;
+}
+
+/* start here REMEMBER TO FIX THE OPACITY AND POINTER EVENTS */
+/* LINE */
+
+.player1Name {
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.player1Name.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.player1Name.show.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.player1Name header {
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+}
+
+.name1Text {
+  font-size: 22px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.select-box .name1Options {
+  display: flex;
+  width: 100%;
+}
+
+.name1Options button {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0;
+  border: none;
+  background: #bbadff;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.name1Options input {
+  margin-bottom: 25px;
+  height: 35px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.player2Name {
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.player2Name.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.player2Name.show.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.player2Name header {
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+}
+
+.name2Text {
+  font-size: 22px;
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.select-box .name2Options {
+  display: flex;
+  width: 100%;
+}
+
+.name2Options button {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0;
+  border: none;
+  background: #bbadff;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.name2Options input {
+  margin-bottom: 25px;
+  height: 35px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.name-box {
+  position: absolute;
+  top: 21%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  background-color: #fff;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  border-radius: 8px;
+  color: #9782ff;
+  font-size: 22px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.name-box.show {
+  opacity: 1;
+}
+
+/* end here */
+/* LINE */
+
+.play-board {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-board.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.play-board .details {
+  padding: 7px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.play-board .players {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.players span {
+  position: relative;
+  z-index: 2;
+  color: #bbadff;
+  font-size: 20px;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  transition: all 0.4s ease;
+}
+
+.players.active span:first-child {
+  color: #fff;
+}
+
+.players.active span:last-child {
+  color: #bbadff;
+}
+
+.players span:first-child {
+  color: #fff;
+}
+
+.players .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #9782ff;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
+.players.active span:first-child {
+  color: #bbadff;
+}
+
+.players.active span:nth-child(2) {
+  color: #fff;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
+.play-area {
+  margin-top: 20px;
+}
+
+.play-area section {
+  display: flex;
+  margin-bottom: 1px;
+}
+
+.play-area section span {
+  display: block;
+  height: 90px;
+  width: 90px;
+  margin: 2px;
+  color: #9782ff;
+  font-size: 40px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.result-box {
+  padding: 25px 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  background: #fff;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won-text {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.result-box .won-text p {
+  margin: 0 5px;
+}
+
+.result-box .btn {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn button {
+  font-size: 18px;
+  padding: 8px 20px;
+  border: none;
+  background: #bbadff;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  width: 100%;
+}
+
+footer {
+  font-size: 15px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+
+
+
+/* @media (max-width:768px)
+{
+.body{
+  background:#bbadff;
+     } 
+} */
